@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP  #-}
 {-# LANGUAGE Safe #-}
 
 {- |
@@ -21,3 +22,7 @@ import Data.Bifunctor (Bifunctor (..))
 import Data.Functor (Functor (..), void, ($>), (<$>))
 import Data.Functor.Compose (Compose (..))
 import Data.Functor.Identity (Identity (..))
+
+#if ( __GLASGOW_HASKELL__ >= 861 )
+import Data.Functor (Contravariant (..), (>$<), (>$$<), ($<))
+#endif
